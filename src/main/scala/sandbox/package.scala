@@ -1,1 +1,1 @@
-package object sandbox extends SafeResults
+package object sandbox extends SafeResults with Coproducts
