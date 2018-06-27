@@ -21,8 +21,9 @@ final class SafeResultsTest extends WordSpec with MustMatchers {
   }
 
   "Applicative on safe" should {
-    "add list " in {
-      (safe[Int](throw new Exception("Boom")),  safe[Int](throw new Exception("Re-Boom"))) mapN {  _ * _  } must be (84)
+    "compose list " in {
+      (safe[Int](throw new Exception("Boom")) ,
+        safe[Int](throw new Exception("Re-Boom"))) mapN {  _ * _  } must be (failure(Error("Boom"), Error("Re-Boom")))
     }
   }
 }
