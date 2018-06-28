@@ -19,7 +19,9 @@ libraryDependencies ++= Seq(
   "org.typelevel" %% "cats-kernel" % "1.0.1" withSources(),
   "org.typelevel" %% "cats-macros" % "1.0.1" withSources(),
   "org.scalactic" %% "scalactic" % "3.0.5" withSources() ,
-  "org.scalatest" %% "scalatest" % "3.0.5" % "test" withSources()
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test" withSources(),
+  "org.tpolecat" %% "atto-core"    % "0.6.2" withSources(),
+  "org.tpolecat" %% "atto-refined" % "0.6.2" withSources()
 )
 
 
