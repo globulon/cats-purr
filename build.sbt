@@ -1,7 +1,7 @@
 name := "cats-sandbox"
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.12.5"
+scalaVersion := "2.12.7"
 
 scalacOptions ++= Seq(
   "-encoding", "UTF-8",   // source files are in UTF-8
@@ -15,9 +15,9 @@ scalacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.typelevel" %% "cats-core" % "1.0.1" withSources(),
-  "org.typelevel" %% "cats-kernel" % "1.0.1" withSources(),
-  "org.typelevel" %% "cats-macros" % "1.0.1" withSources(),
+  "org.typelevel" %% "cats-core" % "1.4.0" withSources(),
+  "org.typelevel" %% "cats-kernel" % "1.4.0" withSources(),
+  "org.typelevel" %% "cats-macros" % "1.4.0" withSources(),
   "org.scalactic" %% "scalactic" % "3.0.5" withSources() ,
   "org.scalatest" %% "scalatest" % "3.0.5" % "test" withSources()
 )

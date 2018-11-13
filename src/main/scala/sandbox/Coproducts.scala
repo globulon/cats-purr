@@ -5,6 +5,8 @@ import cats.data.Validated.{Invalid, Valid}
 import cats.kernel.Monoid
 import cats.{Inject, Monad}
 
+import scala.annotation.tailrec
+
 
 trait Coproducts {
   type ∪[+E, +A]  = Validated[E, A]
@@ -24,7 +26,12 @@ trait Coproducts {
       case (Valid(a), Valid(b))       ⇒ Valid((a, b))
     }
 
-    override def tailRecM[A, B](a: A)(f: A ⇒ E ∪ Either[A, B]): E ∪ B = ???
+    @tailrec
+    override def tailRecM[A, B](a: A)(f: A ⇒ E ∪ Either[A, B]): E ∪ B = f(a) match {
+      case Invalid(e)      ⇒ Invalid(e)
+      case Valid(Right(b)) ⇒ Valid(b)
+      case Valid(Left(a1)) ⇒ tailRecM(a1)(f)
+    }
   }
 
   implicit def injectLefUnion[E, A]: Inject[E, E ∪ A] = new Inject[E, E ∪ A] {
